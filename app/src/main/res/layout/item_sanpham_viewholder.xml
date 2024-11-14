@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="7dp"
+    >
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bogocycpm"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- ImageView nằm bên trái của cả hai TextView -->
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/trasua1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/vien"
+                />
+
+            <!-- Layout dọc chứa hai TextView -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_idsp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trà sữa"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    />
+
+                <!-- TextView tên sản phẩm -->
+                <TextView
+                    android:id="@+id/tv_tensp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trà sữa"
+                    android:textSize="23sp"
+                    android:textStyle="bold"/>
+
+
+                <!-- TextView giá sản phẩm -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical">
+
+                    <!-- TextView cho giá sản phẩm -->
+                    <TextView
+                        android:id="@+id/tv_giasp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100.000đ"
+                        android:textColor="#E30000"
+                        android:textSize="19sp"
+                        android:textStyle="bold"/>
+
+                    <!-- TextView cho chữ "VND" -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VND"
+                        android:textSize="16sp"
+                        android:textColor="#E30000"
+                        android:textStyle="bold"
+                        android:layout_marginStart="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="70dp"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal"
+                    >
+                    <LinearLayout
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/vien"
+                        android:gravity="center"
+                        android:id="@+id/ln_sizeM"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="M"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:gravity="center"
+                        />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/vien"
+                        android:gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/ln_sizeL"
+
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="L"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:gravity="center"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Layout cho các nút -->
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/bt_xoa"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:text="Xóa"
+                android:textSize="17dp"
+                android:backgroundTint="#CD3535"
+                />
+            <Button
+                android:id="@+id/bt_sua"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:text="Sửa"
+                android:textSize="17dp"
+                android:backgroundTint="#163CAC"
+                android:layout_marginLeft="10dp"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout> <!-- Kết thúc LinearLayout bao bọc toàn bộ nội dung -->
+
+</LinearLayout>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="470dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:background="@drawable/bogoc">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center"
+            android:text="Sửa sản phẩm"
+            android:textColor="#BC0000"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sản phẩm:"
+                android:textSize="26dp"
+                android:textStyle="bold"
+                />
+            <EditText
+                android:id="@+id/eta_tensp"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="4dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size:"
+                android:textSize="26dp"
+                android:textStyle="bold"
+                />
+            <CheckBox
+                android:id="@+id/cb_sizeM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="M"
+                android:layout_marginLeft="20dp"
+                android:textSize="26dp"
+                />
+
+            <CheckBox
+                android:id="@+id/cb_sizeL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="L"
+                android:layout_marginLeft="20dp"
+                android:textSize="26dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giá tiền:"
+                android:textSize="26dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_gia"
+                android:layout_width="287dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="4dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/bt_chonanh"
+                android:layout_marginLeft="10dp"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Chọn ảnh"
+                android:textSize="18dp"
+                tools:layout_editor_absoluteY="210dp" />
+
+            <TextView
+                android:id="@+id/tv_linkanh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đường dẫn ảnh"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                tools:layout_editor_absoluteY="258dp" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            >
+
+            <LinearLayout
+                android:id="@+id/bt_susp"
+                android:layout_width="700px"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bt_suasp"
+                android:gravity="center"
+                android:onClick="onButtonClick"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/ree9pqdaifip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sửa"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bt_huy"
+                android:layout_width="700px"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bt_xoasp"
+                android:gravity="center"
+                android:onClick="onButtonClick"
+                android:padding="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/ree9pqdaifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hủy"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

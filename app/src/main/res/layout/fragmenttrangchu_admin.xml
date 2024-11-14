@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- NestedScrollView chứa các phần cuộn -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Banner ViewPager -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/bannerViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <!-- TextView Tiêu đề "Sản phẩm" -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Sản phẩm"
+                android:textSize="24sp"
+                android:textColor="#0058A4"
+                android:textStyle="bold"
+                android:paddingLeft="13dp" />
+
+            <!-- RecyclerView hiển thị danh sách sản phẩm -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvSP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:layout_marginBottom="100dp"
+                android:clipToPadding="false" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Nút Button Thêm sản phẩm luôn nằm trên cùng -->
+    <Button
+        android:id="@+id/bt_themsp"
+        android:layout_width="75dp"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:backgroundTint="#0058A4"
+        android:text="+"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:padding="10dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
