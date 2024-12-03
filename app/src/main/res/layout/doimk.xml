@@ -1,0 +1,46 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đổi mật khẩu"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="10dp" />
+
+    <EditText
+        android:id="@+id/et_new_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập mật khẩu mới"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/et_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập lại mật khẩu"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/bt_doimk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đổi mật khẩu"
+        android:backgroundTint="#3F29C1"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

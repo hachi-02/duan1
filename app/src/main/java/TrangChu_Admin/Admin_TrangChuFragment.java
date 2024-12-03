@@ -29,13 +29,12 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.duan_1.R;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
+import java.util.Map;
 
 import Banner.BannerFragmentAdapter;
 import Helper.FirebaseHelper;
@@ -132,6 +131,9 @@ public class Admin_TrangChuFragment extends Fragment {
         return null;
     }
 
+
+
+
     // Hàm thêm sản phẩm vào Firebase
     public void dialogThemSP() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -141,7 +143,8 @@ public class Admin_TrangChuFragment extends Fragment {
         EditText et_tensp = v.findViewById(R.id.et_tensp);
         CheckBox cb_sizeM = v.findViewById(R.id.cb_sizeM);
         CheckBox cb_sizeL = v.findViewById(R.id.cb_sizeL);
-        EditText et_gia = v.findViewById(R.id.et_gia);
+        EditText et_giaL = v.findViewById(R.id.et_giaL);
+        EditText et_giaM = v.findViewById(R.id.et_giaM);
         Button bt_them = v.findViewById(R.id.bt_themsp);
         Button bt_huy = v.findViewById(R.id.bt_huy);
         Button bt_choanh = v.findViewById(R.id.bt_chonanh);
@@ -153,14 +156,68 @@ public class Admin_TrangChuFragment extends Fragment {
             intent.setType("image/*");
             imagePickerLauncher.launch(intent);
         });
+        et_giaM.setVisibility(View.GONE);
+        et_giaL.setVisibility(View.GONE);
+        cb_sizeM.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                et_giaM.setVisibility(View.VISIBLE); // Hiển thị EditText giá size M
+            } else {
+                et_giaM.setVisibility(View.GONE); // Ẩn EditText giá size M
+                et_giaM.setText(""); // Xóa giá trị nếu không được chọn
+            }
+        });
+
+        cb_sizeL.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                et_giaL.setVisibility(View.VISIBLE); // Hiển thị EditText giá size L
+            } else {
+                et_giaL.setVisibility(View.GONE); // Ẩn EditText giá size L
+                et_giaL.setText(""); // Xóa giá trị nếu không được chọn
+            }
+        });
+
 
         bt_them.setOnClickListener(v1 -> {
             String tensp = et_tensp.getText().toString().trim();
-            int giasp;
-            try {
-                giasp = Integer.parseInt(et_gia.getText().toString().trim());
-            } catch (NumberFormatException e) {
-                Toast.makeText(getContext(), "Giá không hợp lệ", Toast.LENGTH_SHORT).show();
+            int giaM = 0, giaL = 0;
+
+            boolean isSizeMChecked = cb_sizeM.isChecked();
+            boolean isSizeLChecked = cb_sizeL.isChecked();
+
+            // Nếu chỉ chọn size M
+            if (isSizeMChecked && !isSizeLChecked) {
+                try {
+                    giaM = Integer.parseInt(et_giaM.getText().toString().trim());
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getContext(), "Giá size M không hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            // Nếu chỉ chọn size L
+            if (isSizeLChecked && !isSizeMChecked) {
+                try {
+                    giaL = Integer.parseInt(et_giaL.getText().toString().trim());
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getContext(), "Giá size L không hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            // Nếu chọn cả hai size
+            if (isSizeMChecked && isSizeLChecked) {
+                try {
+                    giaM = Integer.parseInt(et_giaM.getText().toString().trim());
+                    giaL = Integer.parseInt(et_giaL.getText().toString().trim());
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getContext(), "Vui lòng nhập giá hợp lệ cho cả hai size", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            // Nếu không chọn bất kỳ size nào
+            if (!isSizeMChecked && !isSizeLChecked) {
+                Toast.makeText(getContext(), "Vui lòng chọn ít nhất một size", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -173,6 +230,11 @@ public class Admin_TrangChuFragment extends Fragment {
                 Toast.makeText(getContext(), "Vui lòng chọn ảnh sản phẩm", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            Map<String, Integer> giasp = new HashMap<>();
+            if (sizes.contains("M")) giasp.put("M", giaM);
+            if (sizes.contains("L")) giasp.put("L", giaL);
+
 
             // Lưu ảnh lên Firebase Storage
 
@@ -214,7 +276,7 @@ public class Admin_TrangChuFragment extends Fragment {
     }
 
     public void dulieu() {
-        firebaseHelper.getAllSanPham(new FirebaseHelper.DataCallback() {
+        firebaseHelper.getAllSanPham(new FirebaseHelper.SanPhamCallback() {
             @Override
             public void onDataReceived(ArrayList<SanPham> sanPhams) {
                 // Cập nhật danh sách sản phẩm
@@ -267,5 +329,115 @@ public class Admin_TrangChuFragment extends Fragment {
         });
         AlertDialog dialog=builder.create();
         dialog.show();
+    }
+
+    //sửa sản phẩm
+    public void suasp(SanPham sp) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        LayoutInflater inf = getLayoutInflater();
+        View v = inf.inflate(R.layout.suasp, null);
+        builder.setView(v);
+        AlertDialog dialog = builder.create();
+
+        EditText et_tensp = v.findViewById(R.id.et_tensp);
+        EditText et_giaM = v.findViewById(R.id.et_giaM);
+        EditText et_giaL = v.findViewById(R.id.et_giaL);
+        CheckBox cb_sizeM = v.findViewById(R.id.cb_sizeM);
+        CheckBox cb_sizeL = v.findViewById(R.id.cb_sizeL);
+        Button cb_chonanh = v.findViewById(R.id.bt_chonanh);
+        TextView tv_linkanh = v.findViewById(R.id.tv_linkanh);
+        Button bt_suasp = v.findViewById(R.id.bt_suasp);
+        Button bt_huy = v.findViewById(R.id.bt_huy);
+
+        et_tensp.setText(sp.getTensp());
+        cb_sizeM.setChecked(sp.getSize().contains("M"));
+        cb_sizeL.setChecked(sp.getSize().contains("L"));
+        tv_linkanh.setText(sp.getImage());
+
+        et_giaM.setText(sp.getGiaSp().get("M") != null ? String.valueOf(sp.getGiaSp().get("M")) : "");
+        et_giaL.setText(sp.getGiaSp().get("L") != null ? String.valueOf(sp.getGiaSp().get("L")) : "");
+        cb_sizeM.setChecked(sp.getSize().contains("M"));
+        cb_sizeL.setChecked(sp.getSize().contains("L"));
+
+        // Hiển thị/ẩn giá size dựa vào CheckBox
+        et_giaM.setVisibility(cb_sizeM.isChecked() ? View.VISIBLE : View.GONE);
+        et_giaL.setVisibility(cb_sizeL.isChecked() ? View.VISIBLE : View.GONE);
+
+        cb_sizeM.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            et_giaM.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            if (!isChecked) et_giaM.setText(""); // Xóa giá trị nếu bỏ chọn size M
+        });
+
+        cb_sizeL.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            et_giaL.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            if (!isChecked) et_giaL.setText(""); // Xóa giá trị nếu bỏ chọn size L
+        });
+
+
+        // Chọn ảnh
+        cb_chonanh.setOnClickListener(v1 -> {
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/*");
+            imagePickerLauncher.launch(intent);
+        });
+
+        bt_suasp.setOnClickListener(v1 -> {
+            String tensp = et_tensp.getText().toString().trim();
+            Map<String, Integer> giasp = new HashMap<>();
+            ArrayList<String> sizes = new ArrayList<>();
+
+            if (cb_sizeM.isChecked()) {
+                try {
+                    int giaM = Integer.parseInt(et_giaM.getText().toString().trim());
+                    giasp.put("M", giaM);
+                    sizes.add("M");
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getContext(), "Giá size M không hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            if (cb_sizeL.isChecked()) {
+                try {
+                    int giaL = Integer.parseInt(et_giaL.getText().toString().trim());
+                    giasp.put("L", giaL);
+                    sizes.add("L");
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getContext(), "Giá size L không hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            if (sizes.isEmpty()) {
+                Toast.makeText(getContext(), "Vui lòng chọn ít nhất một size", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Link ảnh
+            String imageUrl = tv_linkanh.getText().toString().trim();
+
+            // Cập nhật sản phẩm
+            capnhatSP(sp, tensp, giasp, sizes, imageUrl);
+            dialog.dismiss();
+        });
+
+        bt_huy.setOnClickListener(v1 -> dialog.dismiss());
+
+        dialog.show();
+    }
+
+    //cập nhật sản phẩm
+    private void capnhatSP(SanPham sp, String tensp, Map<String, Integer> giasp, List<String> sizes, String imageUrl) {
+        sp.setTensp(tensp);
+        sp.setGiaSp(giasp);
+        sp.setSize(sizes);
+        sp.setImage(imageUrl); // Không thay đổi ảnh
+
+        FirebaseDatabase.getInstance().getReference("sanpham").child(sp.getIdsp()).setValue(sp)
+                .addOnSuccessListener(aVoid -> {
+                    dulieu(); // Tải lại danh sách sau khi cập nhật
+                    Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> Toast.makeText(getContext(), "Lỗi khi cập nhật sản phẩm", Toast.LENGTH_SHORT).show());
     }
 }

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/backall">
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Avatar -->
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_admin"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+             />
+
+        <!-- Tên người dùng -->
+        <TextView
+            android:id="@+id/tv_hoten_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nguyễn Trí Dũng"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Vai trò -->
+        <TextView
+            android:id="@+id/roleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admin"
+            android:textSize="17sp"
+            android:textColor="#777777"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Thông tin -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thông tin"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:textColor="#000000" />
+
+        <!-- Họ tên -->
+        <EditText
+            android:id="@+id/et_hoten_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Họ tên"
+            android:paddingStart="13dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/vien" />
+
+        <!-- Số điện thoại -->
+        <EditText
+            android:id="@+id/et_sdt_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số điện thoại"
+            android:layout_marginBottom="12dp"
+            android:paddingStart="13dp"
+            android:inputType="phone"
+            android:background="@drawable/vien" />
+
+        <!-- Email -->
+
+        <TextView
+            android:id="@+id/tv_email_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/vien"
+            android:text="a"
+            android:textSize="18dp"
+            android:inputType="textEmailAddress"
+            android:paddingStart="13dp" />
+
+        <!-- Địa chỉ -->
+        <EditText
+            android:id="@+id/et_diachi_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Địa chỉ"
+            android:layout_marginBottom="24dp"
+            android:minHeight="100dp"
+            android:gravity="top"
+            android:background="@drawable/vien"
+            android:inputType="textMultiLine"
+            android:paddingStart="13dp"/>
+
+        <!-- Đổi mật khẩu button -->
+        <Button
+            android:id="@+id/bt_luu_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lưu"
+            android:textSize="18dp"
+            android:backgroundTint="#7177C5"
+            />
+        <Button
+            android:id="@+id/bt_doimk_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đổi mật khẩu"
+            android:textSize="18dp"
+            android:backgroundTint="#CD1E41"
+            />
+
+    </LinearLayout>
+</ScrollView>

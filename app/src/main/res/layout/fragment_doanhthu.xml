@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/backall">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:text="Tổng doanh thu"
+        android:textSize="25dp"
+        android:layout_marginBottom="13dp"
+        android:textStyle="bold"
+        android:textColor="#3380B3"
+        />
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginLeft="3dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng: "
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_tongtien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="20sp"
+                android:textColor="#FF4081"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VND"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/bt_tongtien"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Tính tổng tiền"
+        android:backgroundTint="#2D99C3"
+        android:textSize="16sp" />
+
+</LinearLayout>

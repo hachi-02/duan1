@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ndroid="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/mn_TrangChu"
             android:title="Trang chủ"
+            android:icon="@drawable/ic_home"
             />
         <item
             android:id="@+id/mn_Giohang"
             android:title="Giỏ hàng"
+            android:icon="@drawable/ic_cart"
             />
         <item
             android:id="@+id/mn_Donhang"
             android:title="Đơn hàng"
+            android:icon="@drawable/ic_phieumuon"
             />
         <item
             android:id="@+id/mn_TaiKhoan"
             android:title="Tài khoản"
+            android:icon="@drawable/icon_user"
             />
         <item android:title="">
             <menu>
                 <item
                     android:id="@+id/mn_dandgxuat"
                     android:title="Đăng xuất"
+                    android:icon="@drawable/ic_dangxuat"
                     />
             </menu>
         </item>

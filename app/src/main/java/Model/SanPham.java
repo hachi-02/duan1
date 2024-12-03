@@ -1,19 +1,39 @@
 package Model;
 
 import java.util.List;
+import java.util.Map;
 
 public class SanPham {
     private String idsp;
     private String tensp;
-    private double giasp;
+    private Map<String, Integer> giasp;
     private List<String> size;
+    private int soLuong;
     private String image;
-
-    // Constructor mặc định (Firebase yêu cầu)
+    private boolean isSelected;
     public SanPham() {
     }
 
-    public SanPham(String idsp, String tensp, double giasp, List<String> size, String image) {
+    // Constructor mặc định (Firebase yêu cầu)
+
+    public SanPham(String idsp, String tensp, Map<String, Integer> giasp, List<String> size, String image,boolean isSelected) {
+        this.idsp = idsp;
+        this.tensp = tensp;
+        this.giasp = giasp;
+        this.size = size;
+        this.image = image;
+        this.isSelected=isSelected;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    public SanPham(String idsp, String tensp, Map<String, Integer> giasp, List<String> size, String image) {
         this.idsp = idsp;
         this.tensp = tensp;
         this.giasp = giasp;
@@ -38,12 +58,12 @@ public class SanPham {
         this.tensp = tensp;
     }
 
-    public double getGiasp() {
+    public Map<String, Integer> getGiaSp() {
         return giasp;
     }
 
-    public void setGiasp(double giasp) {
-        this.giasp = giasp;
+    public void setGiaSp(Map<String, Integer> giaSp) {
+        this.giasp = giaSp;
     }
 
     public List<String> getSize() {
@@ -60,6 +80,13 @@ public class SanPham {
 
     public void setImage(String image) {
         this.image = image;
+    }
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 }
 

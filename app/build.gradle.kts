@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.duan_1"
-        minSdk = 24
+        minSdk = 25
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -50,6 +51,15 @@ dependencies {
     implementation("com.google.firebase:firebase-storage")  // Nếu bạn cần sử dụng Firebase Storage
     implementation ("com.squareup.picasso:picasso:2.8")
     implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("com.google.firebase:firebase-firestore:24.2.1")
+    implementation("com.squareup.okhttp3:okhttp:4.6.0")
+    implementation("commons-codec:commons-codec:1.14")
+    implementation((fileTree(mapOf(
+        "dir" to "C:\\Users\\pkatt\\Downloads\\ZaloPayLib",
+        "include" to listOf("*.aar","*.jar"),
+        "exclude" to listOf("")
+    ))))
+
 
     // Material Design và viewpager2
     implementation ("com.google.android.material:material:1.9.0")
@@ -58,3 +68,4 @@ dependencies {
 
 
 }
+

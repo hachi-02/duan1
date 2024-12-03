@@ -1,0 +1,194 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="7dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bogocycpm"
+        android:padding="10dp">
+
+        <!-- Layout ngang chứa các thành phần -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Layout dọc chứa thông tin sản phẩm -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_idsp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trà sữa"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_tensp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trà sữa"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Size: "
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="#A1000000"/>
+
+                    <TextView
+                        android:id="@+id/tv_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Size"
+                        android:textColor="#A1000000"
+                        android:textSize="19sp"
+                        android:layout_marginLeft="7dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="x"
+                        android:textSize="19sp"
+                        android:textColor="#A1000000"
+                        android:layout_marginLeft="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_soluong"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="19sp"
+                        android:textColor="#A1000000"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tổng:"
+                        android:textColor="#CBE30000"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_giasp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100.000đ"
+                        android:textColor="#D0E30000"
+                        android:textSize="19sp"
+                        android:layout_marginLeft="7dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VND"
+                        android:textSize="16sp"
+                        android:textColor="#D2E30000"
+                        android:layout_marginStart="5dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- TextView chi tiết ở góc phải -->
+            <TextView
+                android:id="@+id/tv_chitiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chi tiết"
+                android:textSize="15sp"
+                android:textColor="#3935BA"
+                android:gravity="end"
+                android:textStyle="bold"
+                android:layout_marginBottom="30dp"/>
+        </LinearLayout>
+
+        <!-- Nút bấm -->
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:gravity="end">
+
+            <LinearLayout
+                android:id="@+id/bt_huy"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/vien"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Hủy"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#AB1C1C1C" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bt_xacnhan"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/vien1"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Đã nhận được hàng"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_dxn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Đã xác nhận"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:paddingTop="12dp"
+                android:textStyle="bold"
+                android:textColor="#A6000000" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

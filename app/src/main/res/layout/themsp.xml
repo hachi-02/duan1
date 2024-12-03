@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="430dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/bogoc">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:ignore="MissingConstraints"
        >
@@ -36,11 +36,14 @@
                 android:textStyle="bold" />
             <EditText
                 android:id="@+id/et_tensp"
-                android:layout_width="260dp"
+                android:layout_width="217dp"
                 android:layout_height="wrap_content"
+                android:hint="Tên"
+                android:padding="7dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/bogoc2"/>
         </LinearLayout>
 
         <!-- Chuyển Checkbox thành Spinner -->
@@ -88,13 +91,32 @@
                 android:text="Giá tiền:"
                 android:textSize="20dp"
                 android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
             <EditText
-                android:id="@+id/et_gia"
-                android:layout_width="287dp"
+                android:id="@+id/et_giaM"
+                android:layout_width="237dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginBottom="4dp"
+                android:hint="Giá size M"
+                android:padding="7dp"
+                android:background="@drawable/bogoc2"/>
+            <EditText
+                android:id="@+id/et_giaL"
+                android:layout_width="237dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="4dp"
+                android:hint="Giá size L"
+                android:padding="7dp"
+                android:background="@drawable/bogoc2"/>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -117,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Đường dẫn ảnh"
+                android:text="Ảnh"
                 android:textSize="18dp"
                 tools:layout_editor_absoluteY="258dp" />
         </LinearLayout>
@@ -125,7 +147,7 @@
         <LinearLayout
             android:id="@+id/button_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:orientation="vertical"
             android:layout_marginTop="8dp"
             android:gravity="center">
@@ -145,6 +167,7 @@
             android:layout_height="130px"
             android:text="Hủy"
             android:textSize="20dp"
+            android:layout_marginBottom="25dp"
             android:backgroundTint="#EC3B3B"/>
         </LinearLayout>
     </LinearLayout>

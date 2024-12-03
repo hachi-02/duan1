@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@drawable/bogoc">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Phương thức thanh toán"
+            android:textColor="#0035BC"
+            android:textSize="23dp"
+            android:textStyle="bold" />
+
+
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <Button
+                android:id="@+id/bt_offline"
+                android:layout_width="800px"
+                android:layout_height="130px"
+                android:text="Thanh toán khi nhận hàng"
+                android:textSize="18dp"
+                android:backgroundTint="#73CCD8"/>
+
+            <Button
+                android:id="@+id/bt_online"
+                android:layout_width="800px"
+                android:layout_height="130px"
+                android:text="Thanh toán qua MoMo"
+                android:textSize="18dp"
+                android:backgroundTint="#8171D5"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv_back"
+                android:layout_height="30dp"
+                android:text="Quay lại"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

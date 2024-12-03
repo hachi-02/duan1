@@ -18,8 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import TrangChu_Admin.Admin_TrangChuMain;
-import TrangChu_User.User_TrangChuMain;
+import Main.Admin_TrangChuMain;
+import Main.User_TrangChuMain;
 
 public class DangNhap extends AppCompatActivity {
     Button bt_DangKyDN,bt_DangNhap;

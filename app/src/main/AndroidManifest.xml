@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
     <application
@@ -24,16 +25,25 @@
             android:name="DangKy_Nhap.DangNhap"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name="DangKy_Nhap.DangKy"
             android:exported="false" />
         <activity
-            android:name="TrangChu_User.User_TrangChuMain"
-            android:exported="false"/>
+            android:name="Main.Admin_TrangChuMain"
+            android:exported="true"
+            android:label="Merchant Demo"
+            android:launchMode="singleTask">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="demozpdk"
+                    android:host="app" />
+            </intent-filter>
+
+        </activity>
         <activity
-            android:name="TrangChu_Admin.Admin_TrangChuMain"
+            android:name="Main.User_TrangChuMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

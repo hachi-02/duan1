@@ -4,24 +4,29 @@
         <item
             android:id="@+id/mn_QlySP"
             android:title="Quản lý sản phẩm"
+            android:icon="@drawable/ic_product"/>
             />
         <item
             android:id="@+id/mn_QlyDH"
             android:title="Quản lý đơn hàng"
+            android:icon="@drawable/ic_phieumuon"
             />
         <item
             android:id="@+id/mn_DoanhThu"
             android:title="Doanh thu"
+            android:icon="@drawable/ic_revenue"
             />
         <item
             android:id="@+id/mn_TaiKhoan"
             android:title="Tài khoản"
+            android:icon="@drawable/icon_user"
             />
         <item android:title="">
             <menu>
                 <item
                     android:id="@+id/mn_dandgxuat"
                     android:title="Đăng xuất"
+                    android:icon="@drawable/ic_dangxuat"
                     />
             </menu>
         </item>
